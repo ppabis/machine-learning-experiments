@@ -1,7 +1,7 @@
 import random, math
 
 OUTPUT_FILE = 'players.csv'
-PLAYER_COUNT = 50000
+PLAYER_COUNT = 50_000
 
 class Player:
     """
