@@ -9,3 +9,7 @@ resource "aws_sagemaker_notebook_instance" "SageMakerNotebook" {
 output "Jupyter" {
   value = "https://${aws_sagemaker_notebook_instance.SageMakerNotebook.url}"
 }
+
+# If you happen to not be signed-in to AWS Console, use the following command
+# in your Terminal. This long URL will let you enter the notebook.
+# aws sagemaker create-presigned-notebook-instance-url --notebook-instance-name SageMakerNotebook --region us-east-2 --query AuthorizedUrl --output text
