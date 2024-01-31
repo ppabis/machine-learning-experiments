@@ -1,5 +1,8 @@
 import random, math
 
+OUTPUT_FILE = 'players.csv'
+PLAYER_COUNT = 50000
+
 class Player:
     """
     Level,Profession,Sword,Shield,Magic_Level,Average_Weekly_Time_Minutes,Gold_Spent
@@ -67,11 +70,11 @@ def create_export_players(csv_file):
     """
     Exports players to a csv file
     """
-    players = generate_players(50000)
+    players = generate_players(PLAYER_COUNT)
     with open(csv_file, 'w') as f:
         f.write('Level,Profession,Sword,Shield,Magic_Level,Average_Weekly_Time_Minutes,Gold_Spent\n')
         for player in players:
             f.write('{},{},{},{},{},{},{}\n'.format(player.level, player.profession, player.sword, player.shield, player.magic_level, player.average_weekly_time_minutes, player.gold_spent))
 
 if __name__ == '__main__':
-    create_export_players('players.csv')
+    create_export_players(OUTPUT_FILE)
