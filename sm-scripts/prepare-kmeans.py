@@ -1,10 +1,11 @@
-import os
+import os, joblib, pathlib
 import pandas as pd
 from sklearn.preprocessing import StandardScaler
 
 if __name__ == "__main__":
     input_file = os.path.join("/opt/ml/processing/input", os.environ['SM_PROCESS_FILE'])
     output_file = os.path.join("/opt/ml/processing/output", os.environ['SM_PROCESS_FILE'])
+    scaler_file = os.path.join("/opt/ml/processing/output", pathlib.Path(os.environ['SM_PROCESS_FILE']).stem + ".scaler.joblib")
 
     # The files will be copied from S3 by SageMaker.
     csv = pd.read_csv(input_file)
@@ -24,3 +25,5 @@ if __name__ == "__main__":
     csv['Profession'] = professions_str
 
     csv.to_csv(output_file, header=True, index=False)
+
+    joblib.dump(scaler, scaler_file)
