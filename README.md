@@ -1,5 +1,8 @@
 Some machine learning experiments
 
+Refer to this blog post for more information:
+https://pabis.eu/blog/2024-02-10-Lets-Play-Machine-Learning.html
+
 Deploy the infrastructure with these command:
 ```bash
 cd infra/
